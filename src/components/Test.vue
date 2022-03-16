@@ -43,7 +43,24 @@
       </el-aside>
 
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <el-button @click="isMenuCollapse = !isMenuCollapse" style="font-size: 24px;padding: 5px 8px;">
+<!--            <i :class="isMenuCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" />-->
+            <el-icon><fold /></el-icon>
+          </el-button>
+
+          <el-dropdown>
+            <el-icon style="margin-right: 5px"><avatar /></el-icon>
+            <span>lesenelir</span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item width="100">退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+
+        </el-header>
+
         <el-main>
           Main
         </el-main>
@@ -104,5 +121,14 @@ export default {
 </script>
 
 <style scoped>
-
+.el-header {
+  color: #333;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+  font-size: 12px;
+  background-color: #ededed;
+}
 </style>
