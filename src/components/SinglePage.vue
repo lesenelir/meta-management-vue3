@@ -170,7 +170,7 @@ import { checkPhoneValidator } from './validator'
 import { ref, unref } from 'vue'
 
 export default {
-  name: 'Test',
+  name: 'SinglePage',
   setup () {
     // 准备数据源
     const menus = [
