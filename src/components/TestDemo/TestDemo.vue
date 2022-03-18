@@ -10,7 +10,7 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Practice',
+  name: 'TestDemo',
   setup () {
     const arr = ref([
       { id: 1, name: 'str1' },
