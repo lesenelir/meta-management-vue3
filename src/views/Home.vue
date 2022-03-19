@@ -22,7 +22,7 @@
           <span>Welcome back {{username}}</span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item width="100" @click="logout()">退出</el-dropdown-item>
+              <el-dropdown-item width="100" @click="logout()">Sign Out</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

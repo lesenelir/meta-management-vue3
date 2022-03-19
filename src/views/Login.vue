@@ -6,15 +6,15 @@
         <!-- model 绑定表单对象，rules 绑定表单规则，ref 用来校验规则 -->
         <el-form :model="form" :rules="formRules" ref="formDom" label-width="100px" label-position="top" size="large">
           <!-- el-form-item 绑定表单样式，label 表单的名称，formLabelWidth 设置 label 的宽度, 设置 prop 来进行规则校验 -->
-          <el-form-item label="用户名" prop="username">
+          <el-form-item label="User Name" prop="username">
             <el-input v-model="form.username"></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="password">
+          <el-form-item label="Password" prop="password">
             <el-input v-model="form.password" type="password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="onSubmit">登录</el-button>
-            <el-button>取消</el-button>
+            <el-button type="primary" @click="onSubmit">Login</el-button>
+            <el-button>Cancel</el-button>
           </el-form-item>
         </el-form>
       </el-card>

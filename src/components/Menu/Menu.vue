@@ -55,15 +55,15 @@ export default {
   },
   setup () {
     const menus = ref([{
-      text: '服务管理', // 父菜单名字
+      text: 'Service', // 父菜单名字
       icon: 'setting', // 父菜单图标
-      subMenus: [{ text: '服务信息', routerName: 'Service' }] // 子菜单列表
+      subMenus: [{ text: 'Service Information', routerName: 'Service' }] // 子菜单列表
     }, {
-      text: '产品管理',
+      text: 'Product',
       icon: 'menu',
-      subMenus: [{ text: '产品信息', routerName: 'ProductList' }, { text: '新增', routerName: 'ProductAdd' }]
+      subMenus: [{ text: 'Product Information', routerName: 'ProductList' }, { text: 'Add', routerName: 'ProductAdd' }]
     }, {
-      text: '日志信息',
+      text: 'Log',
       icon: 'message',
       routerName: '' // 日志信息这里为空，则不会进行跳转
     }

@@ -3,8 +3,8 @@
     <el-row>
       <el-col :span="24">
         <!-- 删除过程中，不允许其他操作 -->
-        <el-button v-if="!showDeleteCheckbox" @click="dialogFormVisible = true; form = {}" type="primary" plain>新增</el-button>
-        <el-button v-if="!showDeleteCheckbox" @click="showDeleteCheckbox = true" type="danger" plain>删除</el-button>
+        <el-button v-if="!showDeleteCheckbox" @click="dialogFormVisible = true; form = {}" type="primary" plain>Add</el-button>
+        <el-button v-if="!showDeleteCheckbox" @click="showDeleteCheckbox = true" type="danger" plain>Delete</el-button>
 
         <!-- 删除过程中，只出现确认删除按钮 -->
         <el-button
@@ -13,9 +13,9 @@
           type="danger"
           plain
         >
-          确认删除
+          Confirm deletion
         </el-button>
-        <el-button v-if="showDeleteCheckbox" @click="showDeleteCheckbox = false" plain>取消</el-button>
+        <el-button v-if="showDeleteCheckbox" @click="showDeleteCheckbox = false" plain>Cancel</el-button>
       </el-col>
     </el-row>
     <!--主体内容-->
@@ -33,11 +33,11 @@
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="date" label="日期" width="200"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="200"></el-table-column>
-      <el-table-column prop="phone" label="电话" width="200"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column fixed="right" label="操作" width="300">
+      <el-table-column prop="date" label="Date" width="200"></el-table-column>
+      <el-table-column prop="name" label="Name" width="200"></el-table-column>
+      <el-table-column prop="phone" label="Phone" width="200"></el-table-column>
+      <el-table-column prop="address" label="Address"></el-table-column>
+      <el-table-column fixed="right" label="Operation" width="300">
         <template v-slot:default="scope">
           <!-- 删除过程中，禁用其他操作 -->
           <el-button
@@ -46,43 +46,43 @@
             type="info"
             size="small"
           >
-            编辑
+            Edit
           </el-button>
-          <el-button :disabled="showDeleteCheckbox" @click="deleteTableItem(scope.row.id)" type="danger" size="small">删除</el-button>
-          <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'up')" size="small">上移</el-button>
-          <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'down')" size="small">下移</el-button>
+          <el-button :disabled="showDeleteCheckbox" @click="deleteTableItem(scope.row.id)" type="danger" size="small">Delete</el-button>
+          <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'up')" size="small">Up</el-button>
+          <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'down')" size="small">Down</el-button>
         </template>
       </el-table-column>
     </el-table>
 
     <!-- Form -->
     <!-- el-dialog 是弹窗样式，title 绑定弹窗的标题内容，visible 绑定弹窗是否展示 -->
-    <el-dialog title="新增" v-model="dialogFormVisible">
+    <el-dialog title="Create" v-model="dialogFormVisible">
       <!-- model 绑定表单对象，rules 绑定表单规则，ref 用来校验规则 -->
       <el-form :model="form" :rules="formRules" ref="formDom">
         <!-- el-form-item 绑定表单样式，label 表单的名称，formLabelWidth 设置 label 的宽度, 设置 prop 来进行规则校验 -->
-        <el-form-item label="日期" :label-width="formLabelWidth" prop="date">
+        <el-form-item label="Date" :label-width="formLabelWidth" prop="date">
           <!-- 里面装载表单元素，这里装了个选择日期的组件，v-model 绑定选择值，value-format设置绑定值的格式，type 设置选择的范围，这里 date 表示到天 -->
-          <el-date-picker v-model="form.date" type="date" format="YYYY/MM/DD" value-format="YYYY-MM-DD" placeholder="选择日期">
+          <el-date-picker v-model="form.date" type="date" format="YYYY/MM/DD" value-format="YYYY-MM-DD" placeholder="Select date">
           </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="姓名" :label-width="formLabelWidth" prop="name">
+        <el-form-item label="Name" :label-width="formLabelWidth" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
 
-        <el-form-item label="电话" :label-width="formLabelWidth" prop="phone">
+        <el-form-item label="Phone" :label-width="formLabelWidth" prop="phone">
           <el-input v-model="form.phone" type="tel"></el-input>
         </el-form-item>
 
-        <el-form-item label="地址" :label-width="formLabelWidth" prop="address">
+        <el-form-item label="Address" :label-width="formLabelWidth" prop="address">
           <el-input v-model="form.address"></el-input>
         </el-form-item>
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="submitForm">确 定</el-button>
+          <el-button @click="dialogFormVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="submitForm">Confirm</el-button>
         </span>
       </template>
     </el-dialog>
@@ -168,20 +168,20 @@ export default {
         {
           type: 'string',
           required: true,
-          message: '请选择日期',
+          message: 'Please select a date',
           trigger: 'change'
         }
       ],
       name: [
         {
           required: true,
-          message: '请输入名字',
+          message: 'Please enter a name',
           trigger: 'change'
         },
         {
           min: 2,
           max: 10,
-          message: '长度在 2 到 10 个字',
+          message: 'Length from 2 to 10 words',
           trigger: 'blur'
         }
       ],

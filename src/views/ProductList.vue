@@ -3,8 +3,8 @@
     <el-row>
       <el-col :span="24">
         <!-- 删除过程中，不允许其他操作 -->
-        <el-button v-if="!showDeleteCheckbox" @click="updateTableItem(id=0)" type="primary" plain>新增</el-button>
-        <el-button v-if="!showDeleteCheckbox" @click="showDeleteCheckbox = true" type="danger" plain>删除</el-button>
+        <el-button v-if="!showDeleteCheckbox" @click="updateTableItem(id=0)" type="primary" plain>Add</el-button>
+        <el-button v-if="!showDeleteCheckbox" @click="showDeleteCheckbox = true" type="danger" plain>Delete</el-button>
 
         <!-- 删除过程中，只出现确认删除按钮 -->
         <el-button
@@ -13,9 +13,9 @@
           type="danger"
           plain
         >
-          确认删除
+          Confirm deletion
         </el-button>
-        <el-button v-if="showDeleteCheckbox" @click="showDeleteCheckbox = false" plain>取消</el-button>
+        <el-button v-if="showDeleteCheckbox" @click="showDeleteCheckbox = false" plain>Cancel</el-button>
       </el-col>
     </el-row>
     <!--主体内容-->
@@ -33,23 +33,23 @@
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="date" label="日期" width="200"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="200"></el-table-column>
-      <el-table-column prop="phone" label="电话" width="200"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column fixed="right" label="操作" width="300">
+      <el-table-column prop="date" label="Date" width="200"></el-table-column>
+      <el-table-column prop="name" label="Name" width="200"></el-table-column>
+      <el-table-column prop="phone" label="Phone" width="200"></el-table-column>
+      <el-table-column prop="address" label="Address"></el-table-column>
+      <el-table-column fixed="right" label="Operation" width="300">
         <template v-slot:default="scope">
           <el-button :disabled="showDeleteCheckbox" @click="updateTableItem(id=scope.row.id)" type="info" size="small">
-            编辑
+            Edit
           </el-button>
           <el-button :disabled="showDeleteCheckbox" @click="deleteTableItem([scope.row.id])" type="danger" size="small">
-            删除
+            Delete
           </el-button>
           <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'up')" size="small">
-            上移
+            Up
           </el-button>
           <el-button :disabled="showDeleteCheckbox" @click="moveTableItem(scope.row.id, 'down')" size="small">
-            下移
+            Down
           </el-button>
         </template>
       </el-table-column>
