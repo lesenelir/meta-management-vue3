@@ -10,5 +10,7 @@ export default {
 </script>
 
 <style scoped>
-
+body{
+  height: 100%;
+}
 </style>
