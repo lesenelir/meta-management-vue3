@@ -9,11 +9,9 @@
           <el-form-item label="用户名" prop="username">
             <el-input v-model="form.username"></el-input>
           </el-form-item>
-
           <el-form-item label="密码" prop="password">
             <el-input v-model="form.password" type="password"></el-input>
           </el-form-item>
-
           <el-form-item>
             <el-button type="primary" @click="onSubmit">登录</el-button>
             <el-button>取消</el-button>
@@ -63,8 +61,6 @@ export default {
         if (valid) {
           // 校验成功
           setGlobalData('username', form.value.username)
-          // console.log(form.value.username)
-          // console.log(form.value.password)
           if (form.value.username === 'admin' && form.value.password === 'admin') {
             sessionStorage.setItem('token', 'lesenelir')
             console.log('登录成功')
@@ -75,6 +71,7 @@ export default {
           return false
         }
       } catch (e) {
+        console.log(e)
       }
     }
 
