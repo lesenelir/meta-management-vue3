@@ -290,20 +290,20 @@ export default {
         {
           type: 'string',
           required: true,
-          message: '请选择日期',
+          message: 'Please select a date',
           trigger: 'change'
         }
       ],
       name: [
         {
           required: true,
-          message: '请输入名字',
+          message: 'Please enter a name',
           trigger: 'change'
         },
         {
           min: 2,
           max: 10,
-          message: '长度在 2 到 10 个字',
+          message: 'Length from 2 to 10 words',
           trigger: 'blur'
         }
       ],
