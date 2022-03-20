@@ -36,17 +36,17 @@ export default {
     const formRules = ref({
       username: [{
         required: true,
-        message: '请输入用户名',
+        message: 'Please enter your username',
         trigger: 'change'
       }, {
         min: 2,
         max: 10,
-        message: '长度在 2 到 10 个字',
+        message: 'Length from 2 to 10 words',
         trigger: 'blur'
       }],
       password: [{
         required: true,
-        message: '请输入密码',
+        message: 'Please enter your password',
         trigger: 'change'
       }]
     })
