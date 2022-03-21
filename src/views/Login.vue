@@ -24,13 +24,15 @@
 
 <script>
 import { ref, unref } from 'vue'
-import { setGlobalData } from '@/utils/globalData'
+// import { setGlobalData } from '@/utils/globalData'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Login',
   setup () {
     const router = useRouter()
+    const store = useStore()
     // 用作表单绑定的内容
     const form = ref({})
     const formRules = ref({
@@ -60,7 +62,11 @@ export default {
         const valid = await formD.validate()
         if (valid) {
           // 校验成功
-          setGlobalData('username', form.value.username)
+          // setGlobalData('username', form.value.username)
+          store.commit('setGlobalData', {
+            key: 'username',
+            value: form.value.username
+          })
           if (form.value.username === 'admin' && form.value.password === 'admin') {
             sessionStorage.setItem('token', 'lesenelir')
             console.log('登录成功')

@@ -37,10 +37,11 @@
 </template>
 
 <script>
-import { getGlobalData, clearGlobalData } from '@/utils/globalData'
+// import { getGlobalData, clearGlobalData } from '@/utils/globalData'
 import Menu from '@/components/Menu/Menu'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Home',
@@ -49,13 +50,18 @@ export default {
   },
   setup () {
     const router = useRouter()
+    const store = useStore()
     const isMenuCollapse = ref(false) // 是否收起左侧菜单
 
     // =================================
     // 退出
-    const username = ref(getGlobalData('username') || 'admin')
+    // const username = ref(getGlobalData('username') || 'admin')
+    const username = ref(store.getters.getGlobalData('username') || 'admin')
     const logout = () => {
-      clearGlobalData('username')
+      // clearGlobalData('username')
+      store.commit('clearGlobalData', {
+        key: 'username'
+      })
       // 删除 token
       sessionStorage.removeItem('token')
       // router.push({ name: 'Login' })
