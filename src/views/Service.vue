@@ -91,13 +91,20 @@
 
 <script>
 import { checkPhoneValidator } from '@/utils/validator'
-import { ref, unref } from 'vue'
-import data from '@/data/data'
+import { onMounted, ref, unref } from 'vue'
+// import data from '@/data/data'
+import { getData } from '@/request/api'
 
 export default {
   name: 'Service',
   setup () {
-    const tableData = ref(data)
+    // const tableData = ref(data)
+    const tableData = ref('')
+    onMounted(() => {
+      getData().then(res => {
+        tableData.value = Array.from({ length: 20 }).fill(res.data).map((x, i) => { return { id: i + 1, ...x } })
+      })
+    })
 
     // =============================================================
     // 删除一个数据
