@@ -12,7 +12,7 @@
     <!-- 遍历生成父菜单选项 -->
     <template v-for="menu in menus">
       <!-- 有子菜单时，用el-sub-menu-->
-      <el-sub-menu v-if="menu.subMenus && menu.subMenus.length" :index="menu.index" :key="menu.index">
+      <el-sub-menu v-if="menu.subMenus && menu.subMenus.length" :index="menu.index">
         <!-- 父级菜单 -->
         <template #title>
           <el-icon>
@@ -68,6 +68,7 @@ export default {
       routerName: '' // 日志信息这里为空，则不会进行跳转
     }
     ].map((x, i) => {
+      // 添加index，用于默认展开 default-openeds属性，和激活状态efault-active属性的设置
       return {
         ...x,
         // 子菜单就拼接${父菜单index}-${子菜单index}
@@ -82,13 +83,15 @@ export default {
     // 菜单选中下标
     const activeIndex = ref('')
 
-    // 由路由状态来设置el-menu的default-active属性
+    // 由路由状态来设置el-menu的default-active的默认激活菜单属性
+    // 路径参数发生改变后，重新调用该函数
     onBeforeRouteUpdate((to) => {
       let tempIndex
       menus.value.forEach(x => {
         if (x.routerName === to.name) {
           tempIndex = x.index
         } else {
+          // 点击二级菜单
           const subMenuItem = x.subMenus.find(y => y.routerName === to.name)
           if (subMenuItem) {
             tempIndex = subMenuItem.index

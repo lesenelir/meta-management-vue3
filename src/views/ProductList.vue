@@ -67,6 +67,7 @@ export default {
   setup () {
     const router = useRouter()
     const tableData = ref(data)
+    // console.log(tableData.value[0].id)
 
     // =============================================================
     // 新增 / 修改一个数据
@@ -111,14 +112,14 @@ export default {
       switch (direction) {
         case 'up':
           if (index > 0) { // 第一个不上移动
-            const item = tableData.value.splice(index, 1)[0]
-            tableData.value.splice(index - 1, 0, item)
+            const item = tableData.value.splice(index, 1)[0] // 找到删除元素数组的第一个元素
+            tableData.value.splice(index - 1, 0, item) // 上一个位置新增该元素
           }
           break
         case 'down':
           if (index < len - 1) { // 最后一个不下移
-            const item = tableData.value.splice(index, 1)[0]
-            tableData.value.splice(index + 1, 0, item)
+            const item = tableData.value.splice(index, 1)[0] // 找到删除元素数组的第一个元素
+            tableData.value.splice(index + 1, 0, item) // 下一个位置新增该元素
           }
           break
       }

@@ -116,7 +116,12 @@ export default {
         }
       } else {
         // 添加到列表，并且自增id
-        tableData.push({ ...item, id: tableData.length + 1 })
+        // tableData.push({ ...item, id: tableData.length + 1 }) // 根据行来添加
+        if (tableData.length !== 0) { // 不等于0时，往后添加
+          tableData.push({ ...item, id: tableData[tableData.length - 1].id + 1 })
+        } else { // 长度为0时，自动添加的项id为1
+          tableData.push({ ...item, id: 1 })
+        }
       }
     }
 

@@ -1,11 +1,11 @@
 <template>
-  <el-row :gutter="20" style="margin-top: 200px;">
+  <el-row style="margin-top: 200px;">
     <el-col :span="12" :offset="6">
       <el-card>
         <!--Form-->
-        <!-- model 绑定表单对象，rules 绑定表单规则，ref 用来校验规则 -->
+        <!-- model 绑定表单对象，rules 绑定表单校验规则，ref 获取表单DOM元素 -->
         <el-form :model="form" :rules="formRules" ref="formDom" label-width="100px" label-position="top" size="large">
-          <!-- el-form-item 绑定表单样式，label 表单的名称，formLabelWidth 设置 label 的宽度, 设置 prop 来进行规则校验 -->
+          <!-- el-form-item 设置 prop 来进行规则校验（必填），label 表单的名称，formLabelWidth 设置 label 的宽度 -->
           <el-form-item label="Username" prop="username">
             <el-input v-model="form.username"></el-input>
           </el-form-item>
@@ -33,7 +33,7 @@ export default {
   setup () {
     const router = useRouter()
     const store = useStore()
-    // 用作表单绑定的内容
+    // 用作表单绑定的对象
     const form = ref({})
     const formRules = ref({
       username: [{
