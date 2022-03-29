@@ -215,7 +215,7 @@ export default {
       }
     }
 
-    // 提交表单
+    // 提交表单 ｜ 校验表单
     const submitForm = async () => {
       const formD = unref(formDom)
       if (!formD) return
