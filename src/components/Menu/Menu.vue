@@ -12,7 +12,7 @@
     <!-- 遍历生成父菜单选项 -->
     <template v-for="menu in menus">
       <!-- 有子菜单时，用el-sub-menu-->
-      <el-sub-menu v-if="menu.subMenus && menu.subMenus.length" :index="menu.index">
+      <el-sub-menu v-if="menu.subMenus && menu.subMenus.length" :index="menu.index" :key="menu.index">
         <!-- 父级菜单 -->
         <template #title>
           <el-icon>

@@ -103,6 +103,7 @@ export default {
     onMounted(() => {
       getData().then(res => {
         tableData.value = Array.from({ length: 20 }).fill(res.data).map((x, i) => { return { id: i + 1, ...x } })
+        // console.log(tableData.value[tableData.value.length - 1].id)
       })
     })
 
@@ -211,7 +212,12 @@ export default {
         }
       } else {
         // 添加到列表，并且自增id
-        tableData.value.push({ ...item, id: tableData.value.length + 1 })
+        //  tableData.value.push({ ...item, id: tableData.value.length + 1 })
+        if (tableData.value.length !== 0) { // 不等于0时，往后添加
+          tableData.value.push({ ...item, id: tableData.value[tableData.value.length - 1].id + 1 })
+        } else { // 长度为0时，自动添加的项id为1
+          tableData.value.push({ ...item, id: 1 })
+        }
       }
     }
 
