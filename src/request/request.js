@@ -3,7 +3,8 @@ import axios from 'axios'
 
 // 创建一个实例
 const instance = axios.create({
-  baseURL: 'http://yapi.smart-xwork.cn/mock/143899',
+  // baseURL: 'http://yapi.smart-xwork.cn/mock/143899',
+  baseURL: 'https://www.fastmock.site/mock/b608b602f0d70e8d6c904695f538eceb/api',
   timeout: 6000
 })
 
