@@ -10,10 +10,12 @@ const instance = axios.create({
 
 // 拦截器 - 请求拦截
 instance.interceptors.request.use(config => {
-  // 部分接口需要拿到token
-  const token = localStorage.getItem('token')
+  // 模拟部分接口需要拿到token
+  const token = sessionStorage.getItem('token')
   if (token) {
+    // 自定义头部信息 - 设置请求头参数信息
     config.headers.token = token
+    config.headers.Authorization = token
   }
   return config
 }, error => {
