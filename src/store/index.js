@@ -3,7 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     // 全局数据
-    globalData: {}
+    globalData: {},
+    // loading
+    loading: true
   },
   getters: {
     // 获取全局数据 有key获取对应值，没有key获取全部值
@@ -17,7 +19,10 @@ export default createStore({
       // if (payload.key === undefined || payload.value === undefined) {
       //   return
       // }
-      state.globalData = { ...state.globalData, [payload.key]: payload.value }
+      state.globalData = {
+        ...state.globalData,
+        [payload.key]: payload.value
+      }
     },
     // 清除全局数据 传key清除对应数据 不传key清除全部值
     clearGlobalData (state, payload) {
@@ -26,6 +31,10 @@ export default createStore({
       } else {
         delete state.globalData[payload.key]
       }
+    },
+    // 显示 loading = true  - 此时数据还没有加载出来 （请求头）
+    changeLoading (state, payload) {
+      state.loading = payload
     }
   },
   actions: {},

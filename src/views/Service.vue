@@ -19,7 +19,8 @@
       </el-col>
     </el-row>
     <!--主体内容-->
-    <el-table stripe :data="tableData" style="border: 1px solid #ebebeb;border-radius: 3px;margin-top: 10px;">
+    <el-table v-loading="loading" element-loading-text="Loading..."
+              stripe :data="tableData" style="border: 1px solid #ebebeb;border-radius: 3px;margin-top: 10px;">
       <el-table-column prop="id" label="id" width="100">
         <template v-slot:default="scope">
           <!-- el-checkbox 多选框，checked 绑定是否选中，click 绑定点击事件 -->
@@ -91,13 +92,22 @@
 
 <script>
 import { checkPhoneValidator } from '@/utils/validator'
-import { onMounted, ref, unref } from 'vue'
+import { onMounted, ref, unref, watch } from 'vue'
 // import data from '@/data/data'
 import { getData } from '@/request/api'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Service',
   setup () {
+    // loading操作
+    const store = useStore()
+    const loading = ref(store.state.loading)
+    // 监测store内loading的变化
+    watch(() => store.state.loading, () => {
+      loading.value = store.state.loading
+    })
+
     // const tableData = ref(data)
     const tableData = ref('')
     onMounted(() => {
@@ -236,6 +246,7 @@ export default {
     }
 
     return {
+      loading,
       tableData,
       showDeleteCheckbox,
       chosenItem,

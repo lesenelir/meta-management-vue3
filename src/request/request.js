@@ -1,5 +1,6 @@
 // 用来做拦截的
 import axios from 'axios'
+import store from '@/store'
 
 // 创建一个实例
 const instance = axios.create({
@@ -17,6 +18,9 @@ instance.interceptors.request.use(config => {
     config.headers.token = token
     config.headers.Authorization = token
   }
+  // 请求 显示loading
+  store.commit('changeLoading', true)
+  console.log(store.state.loading)
   return config
 }, error => {
   return Promise.reject(error)
@@ -24,6 +28,9 @@ instance.interceptors.request.use(config => {
 
 // 拦截器 - 响应拦截
 instance.interceptors.response.use(res => {
+  // 响应 隐藏loading
+  store.commit('changeLoading', false)
+  console.log(store.state.loading)
   return res
 }, error => {
   return Promise.reject(error)
