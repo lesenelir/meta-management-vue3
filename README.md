@@ -8,7 +8,7 @@ Meta management admin project based on Vue3 and Element Plus
 
 A simple personal backend management admin project on Vue3.0 and Element Plus
 
-The project is based on [ES2015+](https://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vue-router](https://router.vuejs.org/zh-cn/), [vue-cli](https://github.com/vuejs/vue-cli), [axios](https://github.com/axios/axios) and [element-plus](https://github.com/element-plus/element-plus), all data is in the data.js.
+The project is based on [ES2015+](https://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vue-router](https://router.vuejs.org/zh-cn/),[vuex](https://github.com/vuejs/vuex), [vue-cli](https://github.com/vuejs/vue-cli), [axios](https://github.com/axios/axios) and [element-plus](https://github.com/element-plus/element-plus), all data is in the data.js.
 
 
 
@@ -18,11 +18,17 @@ username:    admin
 
 password:         admim
 
-> When you load the **Service Information** page, please take a moment to wait for the page to load.
->
-> If the **Service Information** page does not load, please try refreshing the page again.
-
 ![](https://raw.githubusercontent.com/lesenelir/meta-management-vue3/master/readmePic/readmePic01.png)
+
+
+
+#### Features
+
+- Implemented user login module with route authentication by route navigation guards.
+- Using Element Plus to draw Manu bar, List bar, Form bar.
+- Customize the data in js to render the data on the list page and to add, delete, move, etc.
+- Axios request data to render data for list & form pages and to add, delete, move, etc.
+- Setting up axios request interceptor & response interceptor combined with Element Plus for dynamic loading effects.
 
 
 
