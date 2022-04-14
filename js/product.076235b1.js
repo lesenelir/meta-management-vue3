@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["product"],{d2f1:function(e,n,o){"use strict";o.r(n);var r=o("7a23");function t(e,n,o,t,c,a){var u=Object(r["resolveComponent"])("router-view");return Object(r["openBlock"])(),Object(r["createBlock"])(u)}var c={name:"Product"},a=o("6b0d"),u=o.n(a);const d=u()(c,[["render",t]]);n["default"]=d}}]);
+//# sourceMappingURL=product.076235b1.js.map
