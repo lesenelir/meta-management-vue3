@@ -20,6 +20,11 @@
       </el-card>
     </el-col>
   </el-row>
+
+  <el-card class="box-card">
+    <div style="color: red">username: admin</div>
+    <div style="color: red">password: admin</div>
+  </el-card>
 </template>
 
 <script>
@@ -92,5 +97,13 @@ export default {
 </script>
 
 <style scoped>
+
+.box-card {
+  position: relative;
+  top: -480px;
+  left: 1400px;
+  width: 200px;
+  height: 100px;
+}
 
 </style>
